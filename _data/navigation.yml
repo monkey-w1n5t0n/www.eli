@@ -1,4 +1,6 @@
 main:
+  - title: "uSEQ"
+    url: /useq/
   - title: "Posts"
     url: /posts/
   - title: "Categories"
