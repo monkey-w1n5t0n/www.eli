@@ -1,0 +1,3 @@
+[submodule "assets/useq-perform"]
+	path = assets/useq-perform
+	url = https://github.com/Emute-Lab-Instruments/useq-perform.git
