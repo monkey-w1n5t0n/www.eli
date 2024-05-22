@@ -9,3 +9,28 @@ main:
     url: /tags/
   - title: "About"
     url: /about/
+
+useq:
+  - title: "uSEQ"
+    url: /useq/
+  - title: "Getting Started"
+    url: /useq-start/
+  - title: "Build Guide"
+    url: /useq-build/
+  - title: "Quick Modes"
+    children:
+    - title: "LFOs"
+      url: /useq/
+    - title: "Quantisers"
+      url: /useq/
+  - title: "Tutorials"
+    children:
+    - title: "Triggers and pulses"
+      url: /useq/
+    - title: "Control voltages"
+      url: /useq/
+    - title: "Trigger inputs"
+      url: /useq/
+    - title: "Control voltage inputs"
+      url: /useq/
+  
