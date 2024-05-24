@@ -33,4 +33,8 @@ useq:
       url: /useq/
     - title: "Control voltage inputs"
       url: /useq/
+  - title: "uSEQ API Reference"
+    children:
+    - title: "Inputs"
+      url: /useq-inputs/
   
