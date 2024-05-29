@@ -23,7 +23,11 @@ useq:
       url: /useq/
     - title: "Quantisers"
       url: /useq/
-  - title: "Tutorials"
+  - title: "LISP"
+    children:
+    - title: "About"
+      url: /useq/
+  - title: "uSEQ Tutorials"
     children:
     - title: "Triggers and pulses"
       url: /useq/
@@ -35,6 +39,8 @@ useq:
       url: /useq/
   - title: "uSEQ API Reference"
     children:
+    - title: "Timing"
+      url: /useqapi/useq-timing/
     - title: "Inputs"
-      url: /useq-inputs/
+      url: /useqapi/useq-inputs/
   
