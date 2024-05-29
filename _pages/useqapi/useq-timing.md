@@ -3,6 +3,8 @@ permalink: /useqapi/useq-timing/
 title: "uSEQ API: Timing System"
 sidebar:
   nav: "useq"
+toc: true
+toc_sticky: true
 
 ---
 
