@@ -37,6 +37,8 @@ useq:
       url: /useq/
     - title: "Control voltage inputs"
       url: /useq/
+    - title: "Phase Piece"
+      url: /tutorials/phasepiece/
   - title: "uSEQ API Reference"
     children:
     - title: "Timing"

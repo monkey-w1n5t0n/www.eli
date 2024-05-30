@@ -38,7 +38,7 @@ A phasor, rising from 0-1 over the length of a section
 
 ## Timing functions
 
-### `setbpm <bpm> (<change threshold> = 0)`
+### `set-bpm <bpm> (<change threshold> = 0)`
 
 Set the speed of the sequencer in beats per minute
 
@@ -47,7 +47,7 @@ Set the speed of the sequencer in beats per minute
 | bpm | beats per minute | any |
 | change threshold | the bpm will only change if the difference between the current bpm and the new bpm is more than this threshold. Use this to help stabilise the bpm when it is tracked from an external source using getbpm, as small changes in bpm get disrupt phasors and patterns. | >=0 |
 
-### `getbpm <input>`
+### `get-bpm <input>`
 
 Set the speed of the sequencer in beats per minute
 
@@ -58,10 +58,10 @@ Set the speed of the sequencer in beats per minute
 Use this to get the bpm of the uSEQs sequencing engine:
 
 ```
-(q0 (setbpm (getbpm 1)))
+(q0 (set-bpm (get-bpm 1)))
 ```
 
-### `settimesig <numerator> <denominator>`
+### `set-time-sig <numerator> <denominator>`
 
 Set the time signature of the sequencer
 

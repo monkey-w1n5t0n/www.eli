@@ -1,0 +1,38 @@
+; example of a phase piece
+
+; synth connections
+
+; VCO1 -> Filter1 -> VCA1
+; VCO2 -> Filter2 -> VCA2
+
+; (VCA1 + VCA2) -> Reverb -> Output
+
+; uSEQ a1 -> VCO1 (1v/oct)
+; uSEQ a2 -> VCO2 (1v/oct)
+
+; uSEQ d1 -> Env1 (trigger)
+; uSEQ d2 -> Env2 (trigger)
+
+; Env1 -> VCA1 (cv)
+; Env1 -> Filter1 (freq cv)
+
+; Env2 -> VCA2 (cv)
+; Env2 -> Filter2 (freq cv)
+
+;set the clock speed
+(set-bpm 95)
+;define the pattern of notes that both voices will play
+(define pat1 '(27 31 39 43 49 51 42))
+;this is the variation in speed between the two voices
+(define speed 1.01)
+
+;play the pitches in the first voice at a slightly faster speed than the second voice
+(a1 (* 0.016 (fromList pat1 (fast (* speed 16) phrase))))
+;play the second voice pitches
+(a2 (* 0.01 (fromList pat1 (fast 16 phrase))))
+
+;play the envelope triggers for the first voice (slightly faster than the second)
+(d1 (pulse (fast (* 112 speed) phrase) 0.1))
+;envelope triggers for the second voice
+(d2 (pulse (fast 112 phrase) 0.1))
+
