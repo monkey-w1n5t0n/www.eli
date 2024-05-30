@@ -45,4 +45,10 @@ useq:
       url: /useqapi/useq-inputs/
     - title: "Outputs"
       url: /useqapi/useq-outputs/
+    - title: "Sequencing and Patterns"
+      url: /useqapi/useq-sequencing
+    - title: "Scheduling"
+      url: /useqapi/useq-scheduling
+    - title: "System Utilities"
+      url: /useqapi/useq-system
   
