@@ -43,4 +43,6 @@ useq:
       url: /useqapi/useq-timing/
     - title: "Inputs"
       url: /useqapi/useq-inputs/
+    - title: "Outputs"
+      url: /useqapi/useq-outputs/
   

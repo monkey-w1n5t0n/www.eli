@@ -8,9 +8,9 @@ toc_sticky: true
 
 ---
 
-# Digital Inputs
+## Digital Inputs
 
-## `in1`
+### `in1`
 
 Returns the value of digital input 1 
 
@@ -19,7 +19,7 @@ Example: to echo digital input 1 to digital output 1
 (d1 (in1))
 ```
 
-## `in2`
+### `in2`
 
 Returns the value of digital input 2
 
@@ -28,9 +28,9 @@ Example: to echo digital input 2 to digital output 1
 (d1 (in2))
 ```
 
-# Analog Inputs
+## Analog Inputs
 
-## `ain1`
+### `ain1`
 
 Returns the value of analogue input 1
 
@@ -39,7 +39,7 @@ Example: to echo analogue input 1 to analogue output 1
 (a1 (ain1))
 ```
 
-## `ain2`
+### `ain2`
 
 Returns the value of analogue input 2
 
@@ -48,7 +48,7 @@ Example: to echo analogue input 2 to analogue output 2
 (a2 (ain2))
 ```
 
-## `swm <index>`
+### `swm <index>`
 
 Read the value of a momentary switch
 
@@ -62,7 +62,7 @@ Control the speed of a square wave with momentary switch 1
 (d2 (sqr (fast (+ 1 (swm 1)) beat)))
 ```
 
-## `swt <index>`
+### `swt <index>`
 
 Read the value of a toggle switch
 
