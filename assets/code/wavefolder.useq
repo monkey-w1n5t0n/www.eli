@@ -1,0 +1,13 @@
+(a1 (do
+      (define highthresh 0.65)
+      (define lowthresh 0.4)
+      (define gain 1.0)
+      (define ain1-gain (* gain (ain1)))
+      (if
+        (> ain1-gain highthresh)
+        (- highthresh (- ain1-gain highthresh))
+        (if (< ain1-gain lowthresh)
+          (+ lowthresh (- lowthresh ain1-gain))
+          ain1-gain)
+        ))
+  )
