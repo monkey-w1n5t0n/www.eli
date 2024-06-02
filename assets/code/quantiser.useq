@@ -1,0 +1,3 @@
+(define steps 11)
+
+(a1 (/ (floor (+ 0.5 (* steps (ain1)))) steps))

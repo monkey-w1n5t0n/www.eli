@@ -21,8 +21,8 @@ useq:
     children:
     - title: "LFOs"
       url: /useq/
-    - title: "Quantisers"
-      url: /useq/
+    - title: "Quantiser"
+      url: /quickmodes/quantiser/
     - title: "Wave Folder"
       url: /quickmodes/wavefolder/
 
