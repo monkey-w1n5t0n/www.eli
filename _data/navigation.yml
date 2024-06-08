@@ -12,11 +12,19 @@ main:
 
 useq:
   - title: "uSEQ"
-    url: /useq/
+    children:
+    - title: "About uSEQ"
+      url: /useq/
+    - title: "Specification"
+      url: /useqinfo/useq-specification/
   - title: "Getting Started"
     url: /useq-start/
   - title: "Build Guide"
     url: /useq-build/
+  - title: "Livecoding"
+    children:
+    - title: "What is livecoding?"
+      url: /useqinfo/useq-what-is-livecoding/
   - title: "Quick Modes"
     children:
     - title: "LFOs"

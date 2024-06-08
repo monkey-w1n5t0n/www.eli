@@ -6,5 +6,8 @@ sidebar:
 
 ---
 
-Quick Build Guide
+
+![uSEQ Kit](/assets/images/useq_kit.png){:class="img-responsive"}
+
+Coming soon...
 
