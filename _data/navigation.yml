@@ -17,6 +17,10 @@ useq:
       url: /useq/
     - title: "Specification"
       url: /useqinfo/useq-specification/
+    - title: "Community"
+      url: /useq-community/
+    - title: "Where to buy"
+      url: /useq-buy/
   - title: "Getting Started"
     url: /useq-start/
   - title: "Build Guide"
@@ -27,27 +31,16 @@ useq:
       url: /useqinfo/useq-what-is-livecoding/
   - title: "Quick Modes"
     children:
-    - title: "LFOs"
-      url: /useq/
     - title: "Quantiser"
       url: /quickmodes/quantiser/
     - title: "Wave Folder"
       url: /quickmodes/wavefolder/
-
-  - title: "LISP"
+  - title: "ModuLisp"
     children:
     - title: "About"
-      url: /useq/
+      url: /modulisp-about/
   - title: "uSEQ Tutorials"
     children:
-    - title: "Triggers and pulses"
-      url: /useq/
-    - title: "Control voltages"
-      url: /useq/
-    - title: "Trigger inputs"
-      url: /useq/
-    - title: "Control voltage inputs"
-      url: /useq/
     - title: "Phase Piece"
       url: /tutorials/phasepiece/
   - title: "uSEQ API Reference"
