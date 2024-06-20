@@ -21,6 +21,8 @@ useq:
       url: /useq-community/
     - title: "Where to buy"
       url: /useq-buy/
+    - title: "uSEQ Editor"
+      url: /useqinfo/useq-editor/
   - title: "Getting Started"
     url: /useq-start/
   - title: "Build Guide"
