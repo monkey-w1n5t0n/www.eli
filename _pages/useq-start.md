@@ -62,10 +62,11 @@ Now you have two lines of code, one generating a rhythm, and one modulating your
 
 ## What next?
 
-A good way to learn livecoding is from examples: take a look at the tutorials and quick modes, try varying and customising the code to get a feel for how it works. Take a look at the API reference to see what uSEQ can do.
+A good way to learn livecoding is from examples: take a look at the tutorials and quick modes, try varying and customising the code to get a feel for how it works. Take a look at the API reference to see what uSEQ can do
 
+## Getting Help
 
-## I'm stuck, I need some help
+Join our Discord [community](/useq-community/).
 
 
 
