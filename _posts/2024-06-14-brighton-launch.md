@@ -1,5 +1,5 @@
 ---
-title: "Launch Event at The Lighthouse, Brighton, 30th June"
+title: "Emute Lab Instruments invites you to livecoding workshops and demos of our new uSEQ module, at The Lighthouse, Brighton, 30th June"
 date: 2024-06-14T03:03:03-08:08
 categories:
   - blog
@@ -11,7 +11,7 @@ tags:
 author_profile: false
 ---
 
-Our second launch event for the uSEQ module will be at The Lighthouse in Brighton on Sunday 30th June.  Tickets are free,  more info here:
+We warmly invite you to our launch event for the uSEQ module, at The Lighthouse in Brighton on Sunday 30th June.  Tickets are free,  more info here:
 
 
 Here are tickets for the main evening event, at 6:30-9pm: [https://www.eventbrite.co.uk/e/emute-lab-instruments-useq-launch-tickets-925082455527](https://www.eventbrite.co.uk/e/emute-lab-instruments-useq-launch-tickets-925082455527)
