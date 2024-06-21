@@ -41,3 +41,11 @@ It's possible to run the editor locally, with no need for internet access.
 ## Disconnecting
 
 Simply reload the webpage, and the connection will be dropped.
+
+## Troubleshooting
+
+### Connection problems
+
+On linux or unix based operating systems, this page may have a solution:
+
+[https://support.arduino.cc/hc/en-us/articles/360016495679-Fix-port-access-on-Linux](https://support.arduino.cc/hc/en-us/articles/360016495679-Fix-port-access-on-Linux)

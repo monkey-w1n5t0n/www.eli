@@ -9,7 +9,7 @@ sidebar:
 
 ![uSEQ Kit](/assets/images/useq_kit.png){:class="img-responsive"}
 
-This is probably classes as an easy build, although there are a few things to be careful with.  Most of the components are already pre-assembled on the PCB, so you just need to solder knobs, switches and headers and mount the panel.
+This is probably classes as an easy build, although there are a few things to be careful with (marked in *green*{:style="background-color:lightgreen"}).  Most of the components are already pre-assembled on the PCB, so you just need to solder knobs, switches and headers and mount the panel.
 
 ## In the kit
 
@@ -52,7 +52,7 @@ Solder on the 2 x two pin expansion port headers and the 3 pin JTAG header
 
 ### Step 2: Reset and boot select buttons
 
-On the front size of the board, add on the two buttons.  These are surface mount buttons. The pads are pre-tinned. A good technique is to melt the solder on one side and slide the button in, then press down on the other side with the soldering iron to melt the solder on the second pad.  You don't need any sort of specialist iron from this, but keeping the temperature low (350C) might be useful, as high temperatures can melt the plastic in these buttons.
+On the front size of the board, add on the two buttons.  These are surface mount buttons. The pads are pre-tinned. A good technique is to melt the solder on one side and slide the button in, then press down on the other side with the soldering iron to melt the solder on the second pad.  You don't need any sort of specialist iron from this, but *keeping the temperature low*{:style="background-color:lightgreen"} (350C) might be useful, as high temperatures can melt the plastic in these buttons.
 
 ![build step 2](/assets/images/useq/build2ButtonsClose.jpg){:class="img-responsive"}
 ![build step 2](/assets/images/useq/build2Buttons.jpg){:class="img-responsive"}
@@ -73,7 +73,7 @@ Push the two pots into the board
 
 ### Step 4: Place (but don't solder) the momentary button
 
-Important: this is a polarised component.  You can see a small letter on one side of the top of the button (the letters themselves vary), this needs to go to the left.  
+*Important: this is a polarised component*{:style="background-color:lightgreen"}.  You can see a small letter on one side of the top of the button (the letters themselves vary), this needs to go to the left.  
 
 ![build step 4](/assets/images/useq/buildMomentaryClose.jpg){:class="img-responsive"}
 ![build step 4](/assets/images/useq/buildMomentary.jpg){:class="img-responsive"}
@@ -105,19 +105,29 @@ Shake it around a bit until things fall into place
 ![build step 8](/assets/images/useq/buildPanelNuts.jpg){:class="img-responsive"}
 ![build step 8](/assets/images/useq/build_nuts_2.jpg){:class="img-responsive"}
 
-### Step 9: Now you can solder everying into place
+### Step 9: Solder the momentary switch.
 
 This is a good time to double check that everything is in place properly before you solder.
 
-First solder the momentary button.  Important: make sure that it's pressed fully flat against the panel when you solder, otherwise it might sit at an angle and rub against the faceplate.
+First solder the momentary button.  *Important: make sure that it's pressed fully flat against the panel when you solder*{:style="background-color:lightgreen"}, otherwise it might sit at an angle and rub against the faceplate.
 
-Next, solder the sockets, switches and pots. Then, make sure that all of the LEDs are in the right place in the front panel and solder the LEDs.
+### Step 10: Solder sockets, pots and switches (but wait on the LEDs)
 
-### Step 10: Clip the LED legs
+It's probably easiest to start with the big stuff the pots and toggle switch, then go down each side and do the jack sockets.
 
-### Step 11: Tighten the nuts on the front panel
+### Step 11: Check LED positioning
 
-### Step 12: Place the potentiometer covers, toggle switch cover and momentary switch cap
+It's really hard to desolder the LEDs, so *make sure they're in position*{:style="background-color:lightgreen"} before you solder.  Hold up the module and look at the underside, move them into position so they're sitting in the panel holes, and put the module down carefully on the desk.
+
+### Step 12: Solder the LEDs
+
+To be sensible, check after you've done half of them that nothing has been knocked out of place.
+
+### Step 13: Clip the LED legs
+
+### Step 14: Tighten the nuts on the front panel
+
+### Step 15: Place the potentiometer covers, toggle switch cover and momentary switch cap
 
 ![build step 12](/assets/images/useq/useq%20front%202%20sq.png){:class="img-responsive"}
 

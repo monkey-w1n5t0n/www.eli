@@ -45,6 +45,8 @@ useq:
     children:
     - title: "Phase Piece"
       url: /tutorials/phasepiece/
+    - title: "Gated Envelope Sequences"
+      url: /tutorials/envgate/
   - title: "uSEQ API Reference"
     children:
     - title: "Timing"
