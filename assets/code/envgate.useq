@@ -1,0 +1,9 @@
+
+
+(define pat1 (seq '(1 0.2 0 0.1 0 0.25 1 0) (fast 2 bar)))
+
+; map a1 to a filter
+(a1 (* pat1 (fast 16 (- 1 bar))))
+
+; map a2 to pitch
+(a2 (seq '(0.7 0.3 0.2 0.2) (fast 2 bar)))
