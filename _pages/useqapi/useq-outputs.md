@@ -8,74 +8,46 @@ toc_sticky: true
 
 ---
 
-## Sequencing Callback Functions for CV
+## Sequencing Callback Functions for (continuous) CV
 
-### `a1 <form>`
+### `a[1/2/3/...] <form>`
 
-Specify a function to calculate the value of analog output 1, calculated every quantum
-
-```
-(a1 (* (fromList '(0.4 0.1) bar) 3))
-```
-```
-(a1 0)
-```
-
-### `a2 <form>`
-
-Specify a function to calculate the value of analog output 2, calculated every quantum
+Specify a function to calculate the value of analog output 1/2/3/etc. This function will be evaluated once every update loop.
 
 ```
-(a2 (* (fromList '(0.4 0.1) bar) 3))
+(a1 (* 3 (from-list [0.4 0.1] bar)))
 ```
 ```
 (a2 0)
 ```
-
-### `a3 <form>`
-
-Specify a function to calculate the value of analog output 3, calculated every quantum
-
 ```
-(a3 (* (fromList '(0.4 0.1) bar) 3))
-```
-```
-(a3 0)
-```
-
-## Sequencing Callback Functions for Pulses
-
-### `d1 <form>`
-
-Specify a function to calculate the value of digital output 1, calculated every quantum
+;; Silence all analog outs at the same time
+(do 
+  (a1 0)
+  (a2 0)
+  (a3 0))
 
 ```
-(d1 (sqr beat))
-```
-```
-(d1 0)
-```
 
-### `d2 <form>`
+## Sequencing Callback Functions for Gates & Triggers
 
-Specify a function to calculate the value of digital output 2, calculated every quantum
+### `d[1/2/3/...] <form>`
+
+Specify a function to calculate the value of digital (i.e. binary) output 1/2/3/etc. This function will be evaluated once every update loop.
 
 ```
-(d2 (sqr beat))
+(d1 (square (slow 2 beat)))
 ```
 ```
-(d2 0)
+(d2 (from-list [0 0 1 0 1 1 0 1] (slow 2 bar)))
 ```
+```
+;; Silence all digital outs at the same time
+(do 
+  (d1 0)
+  (d2 0)
+  (d3 0))
 
-### `d3 <form>`
-
-Specify a function to calculate the value of digital output 3, calculated every quantum
-
-```
-(d3 (sqr beat))
-```
-```
-(d3 0)
 ```
 
 ## Sequencing Callback Functions for Serial/MIDI

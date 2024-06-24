@@ -8,38 +8,37 @@ toc_sticky: true
 
 ---
 
-Most computer music systems run with a fixed quantum, but uSEQ is a bit different. It runs as fast as possible, a bit like a game will try to run at the fastest fps possible. 
+Most digital music systems run on a fixed update loop frequency, but uSEQ is a bit different: It tries to run and update as frequently as possible, given the task(s) it's been asked to perform. This is much like how many videogames will try to run at the highest FPS possible, given the complexity of the scene they have to render at each moment. 
 
-Timing functions take a functional rendering approach; they take the current time ```t``` as an argument, and react accordingly. 
+Timing functions take a functional rendering approach; they are "driven" by the current time ```t``` (or any time-varying value that's derived from it), and react accordingly. 
 
-Much of the sequencing in uSEQ is done using phasors, ramps that rise from 0 to 1 in a fixed time period.
+Much of the sequencing in uSEQ is done using _phasors_: ramps that rise from 0 to 1 over a fixed time period.
 
 ## Timing Variables
 
 ### `time`
 
-The number of seconds since the module was switched on.
+The number of seconds since the module was last switched on.
 
 ### `t`
 
-Logical time;  the number of seconds since the last reset.
+Logical time, similar to the notion of playback transport time in most DAWs; the number of seconds since the last user-requested reset of the transport.
 
 ### `beat` 
 
-A phasor, rising from 0-1 over the length of a beat.
+A phasor, rising from 0-1 over the length of a beat (dependent on the BPM and time signature).
 
 ### `bar` 
 
-A phasor, rising from 0-1 over the length of a bar.
+A phasor, rising from 0-1 over the length of a bar (dependent on the BPM and time signature).
 
 ### `phrase` 
 
-A phasor, rising from 0-1 over the length of a phrase.
-
+A phasor, rising from 0-1 over the length of a phrase (dependent on the BPM, time signature, and phrase length in bars).
 
 ### `section` 
 
-A phasor, rising from 0-1 over the length of a section.
+A phasor, rising from 0-1 over the length of a section (dependent on the BPM, time signature, and section length in bars).
 
 ### `bpm`
 
@@ -49,7 +48,6 @@ The tempo in beats per minute.
 
 The tempo in beats per second.
 
-
 ## Timing functions
 
 ### `set-bpm <bpm>`
@@ -58,7 +56,7 @@ Set the speed of the sequencer in beats per minute.
 
 | Parameter | Description | Range |
 | --- | --- | --- |
-| bpm | beats per minute | >0 |
+| bpm | beats per minute | > 0 |
 
 
 ### `set-time-sig <numerator> <denominator>`
@@ -67,8 +65,8 @@ Set the time signature of the sequencer.
 
 | Parameter | Description | Range |
 | --- | --- | --- |
-| numerator | number of beats in a measure | any |
-| denominator | the length of a beat | any |
+| numerator | number of beats in a measure | > 0 |
+| denominator | the length of a beat | > 0 |
 
 ### `get-clock-source`
 
