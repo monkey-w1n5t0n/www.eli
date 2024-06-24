@@ -23,6 +23,8 @@ useq:
       url: /useq-buy/
     - title: "uSEQ Editor"
       url: /useqinfo/useq-editor/
+    - title: "Updating Firmware"
+      url: /useqinfo/useq-update/
   - title: "Getting Started"
     url: /useq-start/
   - title: "Build Guide"
