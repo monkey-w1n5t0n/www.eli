@@ -3,7 +3,8 @@ permalink: /modulisp-about/
 title: "ModuLisp"
 sidebar:
   nav: "useq"
-
+toc: true
+toc_sticky: true
 ---
 
 ## Defining & naming things
