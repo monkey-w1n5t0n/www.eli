@@ -27,9 +27,9 @@
 (define speed 1.01)
 
 ;play the pitches in the first voice at a slightly faster speed than the second voice
-(a1 (* 0.016 (fromList pat1 (fast (* speed 16) phrase))))
+(a1 (* 0.016 (from-list pat1 (fast (* speed 16) phrase))))
 ;play the second voice pitches
-(a2 (* 0.01 (fromList pat1 (fast 16 phrase))))
+(a2 (* 0.01 (from-list pat1 (fast 16 phrase))))
 
 ;play the envelope triggers for the first voice (slightly faster than the second)
 (d1 (pulse (fast (* 112 speed) phrase) 0.1))

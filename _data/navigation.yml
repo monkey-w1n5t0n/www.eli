@@ -45,6 +45,8 @@ useq:
       url: /modulisp-about/
   - title: "uSEQ Tutorials"
     children:
+    - title: "Manipulating Signals"
+      url: /tutorials/signalbasics/
     - title: "Phase Piece"
       url: /tutorials/phasepiece/
     - title: "Gated Envelope Sequences"

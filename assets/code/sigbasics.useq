@@ -1,0 +1,32 @@
+
+
+
+;create a signal
+(define wave 0.5)
+
+;view
+(s1 wave)
+
+;send to output a1
+(a1 wave)
+
+
+;create a saw wave
+(define wave bar)
+
+;speed up the saw (phasor)
+(define wave (fast 3 bar))
+
+;scale the signal
+(define wave (* 0.5 (fast 3 bar)))
+
+;shift the signal
+(define wave (+ 0.5 (* 0.5 (fast 3 bar))))
+
+;invert the signal
+(define wave (- 1 (+ 0.3 (* 0.8 (fast 3 bar)))))
+
+;change the shape of the envelope
+
+(define wave (pow (fast 3 bar) 1))
+
