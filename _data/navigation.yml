@@ -65,6 +65,8 @@ useq:
       url: /useqapi/useq-sequencing
     - title: "Scheduling"
       url: /useqapi/useq-scheduling
+    - title: "Probabilities"
+      url: /useqapi/useq-prob
     - title: "System Utilities"
       url: /useqapi/useq-system
   
