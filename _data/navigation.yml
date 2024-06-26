@@ -39,6 +39,8 @@ useq:
       url: /quickmodes/quantiser/
     - title: "Wave Folder"
       url: /quickmodes/wavefolder/
+    - title: "Noise Source"
+      url: /quickmodes/noisegen/
   - title: "ModuLisp"
     children:
     - title: "About"

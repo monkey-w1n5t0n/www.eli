@@ -1,0 +1,12 @@
+; white noise to a1`
+(a1 (* (random 1 1000) 0.001))
+
+;for a2 and a3, the degree to which the noise amplitude is quantised is controlled by ain1
+(a2 (/ (random 0 (* (ain1) 10.0)) (* (ain1) 10.0)))
+(a3 (/ (random 0 (* (ain1) 10.0)) (* (ain1) 10.0)))
+
+  
+;the digital outputs trigger above a threshold set by ain2. The higher this is, the less likely they are to trigger  
+(d1 (> (* (random 0 1000) 0.001) (ain2)))
+(d2 (> (* (random 0 1000) 0.001) (ain2)))
+(d3 (> (* (random 0 1000) 0.001) (ain2)))

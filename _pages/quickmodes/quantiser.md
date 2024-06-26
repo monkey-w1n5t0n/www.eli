@@ -1,6 +1,6 @@
 ---
 permalink: /quickmodes/quantiser/
-title: "uSEQ Tutorial: Quantiser"
+title: "uSEQ Quick Mode: Quantiser"
 sidebar:
   nav: "useq"
 toc: true

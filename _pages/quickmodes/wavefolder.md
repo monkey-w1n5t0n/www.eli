@@ -1,6 +1,6 @@
 ---
 permalink: /quickmodes/wavefolder/
-title: "uSEQ Tutorial: Wave Folder"
+title: "uSEQ Quick Mode: Wave Folder"
 sidebar:
   nav: "useq"
 toc: true
