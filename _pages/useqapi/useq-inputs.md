@@ -32,48 +32,47 @@ Example: to echo digital input 2 to digital output 1
 
 ### `ain1`
 
-Returns the value of analogue input 1
+Returns the value of CV input 1
 
-Example: to echo analogue input 1 to analogue output 1
+Example: to echo CV input 1 to CV output 1
 ```
 (a1 (ain1))
 ```
 
 ### `ain2`
 
-Returns the value of analogue input 2
+Returns the value of CV input 2
 
-Example: to echo analogue input 2 to analogue output 2
+Example: to echo CV input 2 to CV output 2
 ```
 (a2 (ain2))
 ```
 
-### `swm <index>`
+### `swm`
 
-Read the value of a momentary switch
-
-| Parameter | Description | Range |
-| --- | --- | --- |
-| index | The index of the switch | 1 or 2 |
+Read the value of the momentary switch
 
 
 Control the speed of a square wave with momentary switch 1
 ```
-(d2 (sqr (fast (+ 1 (swm 1)) beat)))
+(d2 (sqr (fast (+ 1 (swm)) beat)))
 ```
 
-### `swt <index>`
+### `swt`
 
-Read the value of a toggle switch
+Read the value of the toggle switch
 
-| Parameter | Description | Range |
-| --- | --- | --- |
-| index | The index of the switch | any|
+| Position | Value  |
+| --- | --- |
+| Left | 0 |
+| Centre | 1 |
+| Right | 2 |
 
 
-Control the speed of a square wave with toggle switch 2
+
+Control the speed of a square wave with the toggle switch 
 ```
-(d4 (sqr (fast (scale (swt 1) 0 1 3 8) beat)))
+(d4 (sqr (fast (scale (swt) 0 2 3 8) beat)))
 ```
 
 

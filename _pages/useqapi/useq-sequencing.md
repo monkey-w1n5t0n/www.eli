@@ -27,8 +27,31 @@ Outputs a pulse wave.
 
 | Parameter | Description | Range |
 | --- | --- | --- |
-| phasor | A phasor (e.g. bar, beat) | 0-1 |
 | pulse width | The relative width of each pulse | 0-1 |
+| phasor | A phasor (e.g. bar, beat) | 0-1 |
+
+### `tri <duty cycle> <phasor>`
+
+Variable duty triangle wave
+
+| Parameter | Description | Range |
+| --- | --- | --- |
+| duty | The point within the phase when the triangle should reach its peak | 0-1 |
+| phasor | A phasor (e.g. bar, beat) | 0-1 |
+
+This waveform is really useful for creating envelopes
+
+e.g. an envelope with fast attack, long decay, with the peak near the beginning
+```
+(a1 (tri 0.1 (fast 4 bar)))
+```
+
+or transform the straight triangle edges into curves with ```pow```
+
+```
+(a1 (pow (tri 0.2 (fast 4 bar)) 0.6))
+```
+
 
 
 ## List-based patterns
@@ -47,23 +70,23 @@ Items in the list are evaluated before being returned, so you can use functions,
 Examples:
 
 ```
-(fromList [1 2 3 4] 0.6)) ; => 3
+(from-list [1 2 3 4] 0.6) ; => 3
 ```
 
 ```
-(fromList [1 2 3 4] bar))
+(from-list [1 2 3 4] bar) 
 ```
 
 ```
-(seq [1 (/ phrase 2)] bar))
+(seq [1 (/ phrase 2)] bar)
 ```
 
 ```
-(fromList '(1 phrase) bar))
+(from-list '(1 phrase) bar)
 ```
 
 ```
-(fromList [1 2 (fromList [1 2] bar)] 
+(from-list [1 2 (fromList [1 2] bar)] 
     (slow 2 bar))
 
 ```
@@ -116,11 +139,11 @@ Output a sequence of gates, with variable pulse width.
 | pulse width | Optional, default: 0.5. The pulse width of the gates | 0-1 |
 
 ```
-(d2 (gates [0 1 1 0  1 1 1 0  1 1 0 1  1 0 0 1] (+ (swm 1) 0.3) bar))
+(d2 (gates [0 1 1 0  1 1 1 0  1 1 0 1  1 0 0 1] (+ (swm) 0.3) bar))
 ```
 
 ```
-(d2 (gates [0 1 1 0 1 0 0 (swt 1)] 0.5 (fast 2 bar))))
+(d2 (gates [0 1 1 0 1 0 0 (swt)] 0.5 (fast 2 bar)))
 ```
 
 ### `gatesw <list> <phasor>`
@@ -196,15 +219,15 @@ E.g. the code below will play the first half of the sequence repeatedly
 (d2 (gatesw (quote 9 9 5 9 3 0 3 8) (looph bar 0.5) 2))
 ```
 
-### `step <phasor> <count> (<offset> = 0)`
+### `step <count> (<offset> = 0) <phasor> `
 
 Turn a phasor into an integer counter
 
 | Parameter | Description | Range |
 | --- | --- | --- |
-| phasor | A phasor | 0 - 1 |
 | count | the number of divisions to divide the phasor into | >0 |
 | offset | Optional. the point to start the counter from | any |
+| phasor | A phasor | 0 - 1 |
 
 ## Pattern Generation
 
