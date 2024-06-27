@@ -16,4 +16,4 @@ The first launch event for the uSEQ module will be at Signal Sounds in Glasgow o
 
 We'll be introducing the module, and running a livecoding workshop.
 
-Another event is planned in Brighton on 30th June, info coming soon...
+Another event is planned in Brighton on 30th June.
