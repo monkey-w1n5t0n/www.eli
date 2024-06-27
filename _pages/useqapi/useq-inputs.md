@@ -12,7 +12,7 @@ toc_sticky: true
 
 ### `in1`
 
-Returns the value of digital input 1 
+Returns the value of digital input 1.
 
 Example: to echo digital input 1 to digital output 1
 ```
@@ -21,7 +21,7 @@ Example: to echo digital input 1 to digital output 1
 
 ### `in2`
 
-Returns the value of digital input 2
+Returns the value of digital input 2.
 
 Example: to echo digital input 2 to digital output 1
 ```
