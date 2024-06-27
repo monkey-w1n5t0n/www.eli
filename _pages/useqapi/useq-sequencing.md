@@ -161,16 +161,16 @@ Output a sequence of gates, with pulse width controlled from values in the list
 (d2 (gatesw [9 9 5 9 3 0 3 8] (fast 2 bar)))
 ```
 
-### `trigs <list> <phasor> (<speed>) (<pulsewidth>)`
+### `trigs <list> (<pulsewidth>) <phasor>`
 
-Output a sequence of gates, with pulse width controlled from values in the list
+Output a sequence of gates, each of which can have a different amplitude, determined by a list of amplitudes.
 
-| Parameter | Description | Range |
-| --- | --- | --- |
-| list | A list of trigger values, varying from 0 (0% amplitude) to 9 (100% amplitude) | 0 - 9 |
-| phasor | The sequence is output once per cycle of the phasor | 0-1 |
-| speed | Optional, default: 1. Modify the speed of the phasor | >= 1 |
-| pulseWidth | Optional, default: 0.1. Modify the pulse width of the trigger | 0 - 1 |
+| Parameter  | Description                                                                   | Range |
+|------------|-------------------------------------------------------------------------------|-------|
+| list       | A list of trigger values, varying from 0 (0% amplitude) to 9 (100% amplitude) | 0 - 9 |
+| phasor     | The sequence is output once per cycle of the phasor                           | 0-1   |
+| speed      | Optional, default: 1. Modify the speed of the phasor                          | >= 1  |
+| pulseWidth | Optional, default: 0.1. Modify the pulse width of the trigger                 | 0 - 1 |
 
 ```clojure
 (s3 (trigs [0 1 9 0 1] (fast 2 bar)))
@@ -180,10 +180,10 @@ Output a sequence of gates, with pulse width controlled from values in the list
 
 Interpolate across a list, using a phasor.  This function acts as if the list of values describes a continuous envelope, and returns the value at a position in that envelope.  e.g.
 
-| Parameter | Description | Range |
-| --- | --- | --- |
-| values | A list of values | any list |
-| phasor | A phasor | 0 - 1 |
+| Parameter | Description      | Range    |
+|-----------|------------------|----------|
+| values    | A list of values | any list |
+| phasor    | A phasor         | 0 - 1    |
 
 ```clojure
 (interp [0 0.5 0] 0.75)
