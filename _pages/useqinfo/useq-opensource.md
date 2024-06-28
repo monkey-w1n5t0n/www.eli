@@ -1,5 +1,5 @@
 ---
-permalink: /useqinfo/useq-comms/
+permalink: /useqinfo/useq-opensource/
 title: "Open Source Approach"
 sidebar:
   nav: "useq"
