@@ -65,6 +65,7 @@ A variation by the name `defs` works the same way, but can be used to define mul
 ```
 
 ### `set <name> <expression>` 
+
 | Parameter  | Description                                          | Type   |
 |------------|------------------------------------------------------|--------|
 | name       | The name to assign to the expression's current value | Symbol |
@@ -166,6 +167,7 @@ If any of the names clash with variables that have been named outside the `let` 
 NOTE: since lists and vectors are so similar, the terms are often used interchangeably.
   
 ### `list <args>`
+
 | Parameter | Description | Range |
 | --- | --- | --- |
 | args | Any number of values | any |
@@ -190,6 +192,7 @@ NOTE: `list` _will_ evaluate its arguments, unlike `quote`, which is often the d
 ```
 
 ### `vec <args>`
+
 | Parameter | Description | Range |
 | --- | --- | --- |
 | args | Any number of values | any |
@@ -203,6 +206,7 @@ Creates a vector containing the given arguments.
 ```
 
 ### `index <list> <index>` (alias: `nth`)
+
 | Parameter | Description | Range |
 | --- | --- | --- |
 | list | A list of values | any |
@@ -217,6 +221,7 @@ Returns the element at the given index in the list.
 
 
 ### `first <list>` (alias: `head`)
+
 | Parameter | Description      | Range |
 |-----------|------------------|-------|
 | list      | A list of values | any   |
@@ -245,6 +250,7 @@ Returns all but the first element of the list.
 ```
 
 ### `zeros <length>`
+
 | Parameter | Description                     | Range            |
 |-----------|---------------------------------|------------------|
 | length    | The number of zeros to generate | any integer >= 0 |
@@ -257,6 +263,7 @@ Creates a list of zeros of the specified length.
 ```
 
 ### `insert <list> <position> <value>`
+
 | Parameter | Description                        | Type             |
 |-----------|------------------------------------|------------------|
 | list      | The list to insert in              | List/Vector      |
@@ -271,6 +278,7 @@ Inserts a value in a specific position in the list.
 ```
 
 ### `remove <list> <index>`
+
 | Parameter | Description                     | Type                                |
 |-----------|---------------------------------|-------------------------------------|
 | list      | The list to remove from         | List/Vector                         |
@@ -287,6 +295,7 @@ Removes from the list the value at the specified index (if it exists).
 Returns the length of a list or vector.
 
 ### `push <list> <value>`
+
 | Parameter | Description         | Type        |
 |-----------|---------------------|-------------|
 | list      | The list to push to | List/Vector |
@@ -320,6 +329,7 @@ TIP: `lambda`/`fn` is often used with higher-order functions, such as `map`, to 
 ```
 
 ### `map <function> <list>`
+
 | Parameter | Description | Range |
 | --- | --- | --- |
 | function | A function to apply to each element | function |
@@ -380,6 +390,7 @@ TIP: This is useful for applying changes to a many outputs at the same time:
   (a3 0))
 ```
 ### `if <test> <then> <else>`
+
 | Parameter | Description                                          | Range |
 |-----------|------------------------------------------------------|-------|
 | test      | An expression that evaluates to either true or false | any   |
@@ -394,6 +405,7 @@ Conditionally executes one of two branches depending on the outcome of a boolean
   (println "Two is greater than three!?!?"))
 ```
 ### `for <name> <list> & <body>`
+
 | Parameter | Description                        | Type        |
 |-----------|------------------------------------|-------------|
 | name      | The name to assign to each value   | Symbol      |
@@ -410,6 +422,7 @@ Iterates over a list of values, assigns each value to a name, and then evaluates
 ```
 
 ### `while <condition> & <body>`
+
 | Parameter | Description                                | Type |
 |-----------|--------------------------------------------|------|
 | condition | Any expression that evaluates to a boolean | Bool |
@@ -462,6 +475,7 @@ Divides the first value by the second value.
 | value2 | The value to divide by | (non-zero) number |
 
 ### `% <value1> <value2>`
+
 | Parameter | Description | Range |
 | --- | --- | --- |
 | value1 | The value to be divided | number |
@@ -476,12 +490,14 @@ Calculates the remainder of the division of the first value by the second value.
 
 Rounds a number down to the nearest integer.
 ### `ceil <value>`
+
 | Parameter | Description           | Range  |
 |-----------|-----------------------|--------|
 | value     | The value to round up | number |
 
 Rounds a number up to the nearest integer.
 ### `= <value1> <value2>`
+
 | Parameter | Description                 | Range |
 |-----------|-----------------------------|-------|
 | value1    | The first value to compare  | any   |
@@ -489,6 +505,7 @@ Rounds a number up to the nearest integer.
 
 Checks if two values are equal.
 ### `!= <value1> <value2>`
+
 | Parameter | Description                 | Range |
 |-----------|-----------------------------|-------|
 | value1    | The first value to compare  | any   |
@@ -503,6 +520,7 @@ Returns true if the two values are not equal, false otherwise.
 ```
 
 ### `> <value1> <value2>`
+
 | Parameter | Description                 | Range |
 |-----------|-----------------------------|-------|
 | value1    | The first value to compare  | any   |
@@ -537,6 +555,7 @@ Checks if the first value is greater than or equal to the second value.
 
 Checks if the first value is less than or equal to the second value.
 ### `usin <phasor>`
+
 | Parameter | Description             | Range |
 |-----------|-------------------------|-------|
 | phasor    | A value between 0 and 1 | 0-1   |
@@ -628,6 +647,7 @@ Converts a unipolar value (0 to 1) to a bipolar value (-1 to 1).
 ```
 
 ### `pow <exponent> <value>`
+
 | Parameter | Description                        | Type   |
 |-----------|------------------------------------|--------|
 | exponent  | The exponent value                 | Number |
@@ -656,6 +676,7 @@ TODO
 TODO
 ## Utility functions
 ### range <low> <high>
+
 | Parameter | Description | Type |
 | --- | --- | --- |
 | low | The starting value of the range | integer or float |
@@ -684,6 +705,7 @@ Writes a HIGH or LOW value to a digital pin.
 (dw 13 0) ; => sets pin 13 to LOW
 
 ### `dr <pinNumber>`
+
 | Parameter | Description | Range |
 | --- | --- | --- |
 | pinNumber | The pin number to read from | integer |

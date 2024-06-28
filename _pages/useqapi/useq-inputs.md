@@ -12,19 +12,19 @@ toc_sticky: true
 
 ### `in1`
 
-Returns the value of digital input 1 
+Returns the value of digital input 1.
 
 Example: to echo digital input 1 to digital output 1
-```
+```clojure
 (d1 (in1))
 ```
 
 ### `in2`
 
-Returns the value of digital input 2
+Returns the value of digital input 2.
 
 Example: to echo digital input 2 to digital output 1
-```
+```clojure
 (d1 (in2))
 ```
 
@@ -35,7 +35,7 @@ Example: to echo digital input 2 to digital output 1
 Returns the value of CV input 1
 
 Example: to echo CV input 1 to CV output 1
-```
+```clojure
 (a1 (ain1))
 ```
 
@@ -44,7 +44,7 @@ Example: to echo CV input 1 to CV output 1
 Returns the value of CV input 2
 
 Example: to echo CV input 2 to CV output 2
-```
+```clojure
 (a2 (ain2))
 ```
 
@@ -54,7 +54,7 @@ Read the value of the momentary switch
 
 
 Control the speed of a square wave with momentary switch 1
-```
+```clojure
 (d2 (sqr (fast (+ 1 (swm)) beat)))
 ```
 
@@ -69,9 +69,8 @@ Read the value of the toggle switch
 | Right | 2 |
 
 
-
 Control the speed of a square wave with the toggle switch 
-```
+```clojure
 (d4 (sqr (fast (scale (swt) 0 2 3 8) beat)))
 ```
 
