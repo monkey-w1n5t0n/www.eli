@@ -28,6 +28,14 @@ Code gets saved automatically in your browser's local storage as you type, and w
 
 Place the cursor within a Modulisp statement, and hit ```ctrl-enter``` to run immeadiately or ```alt-enter``` to run at the start of the next bar.
 
+## Getting help
+
+Press alt-h for key commands
+
+## Structural Editor
+
+We use [CodeMirror Clojure Mode](https://github.com/nextjournal/clojure-mode) structural editor.  The strucutral is aware of the syntax of the language being edited, so it will try and restrict you to only adding valid LISP statements by automatically managing the placement of brackets.  The 'slurping' and 'barfing' functions are particularly useful for adding or removing items from lists.
+
 
 ## Running the editor offline
 

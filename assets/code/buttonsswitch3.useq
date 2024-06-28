@@ -1,0 +1,121 @@
+;Switches, Buttons and If
+
+;This tutorial will explore using the switch and button to control output
+;but you can easily adapt the code to respond to one of the digital or analog inputs
+
+
+; first let's echo the switch to d1
+
+(d1 (swt))
+
+; lets invert the momentary with.. out = 1 - momentarySwitch
+
+(d1 (- 1 (swm)))
+
+
+; use the switch to affect a sequence
+;------------------------------------
+
+;first generate a sequence
+
+(d1 (gatesw '(9 9 0 9 3 0 3 9 8 0 0) bar))
+
+; replace the 9s with 0, 4 or 8 depending on the switch position
+(d1 (gatesw '((* 4 (swt)) (* 4 (swt)) 0 (* 4 (swt)) 3 0 3 (* 4 (swt)) 8 0 0) bar))
+
+
+; using an IF statement
+;----------------------
+
+; this will run ONCE when you send it to the uSEQ.
+; if statement structure is
+; (if (this is TRUE) (do this) (optoional otherwise do this))
+; so do it TWICE but changing the switch in between (note D3)
+
+(if (> (swt) 0)
+    (d3 1)
+    (d3 0)
+    )
+
+; We can make the code run every quantum for D3 by 
+
+(d3
+  (if (> (swt) 0)
+    1
+    0
+    )
+ )
+
+; Now we can toggle between two sequences
+
+(d3
+  (if (> (swt) 0)
+    (gatesw (quote 9 9 0 9 3 0 3 9 8 0 0) bar)
+    (gatesw (quote 3 7 3 7 0 0 0 9 2 7 2 0 0 0) bar)
+    )
+  )
+
+
+; Extension thoughts:-
+; =====================
+; We still have the D1 sequence running - what do you notice?
+; Make the sequence change depending on CV or Gate input
+; Make a controllable CV output
+
+
+;HANG ON but the switch has 3 sequences - we can nest IF statements like this!
+
+(d3
+  (if (= (swt) 0)
+    (gatesw '(9 9 0 9 3 0 3 9 8 0 0) bar)
+    (if (= (swt) 1)
+      (gatesw '(3 7 3 7 0 0 0 9 2 7 2 0 0 0) bar)
+      (gatesw '(0 9 9 9 0 0 0 5 5 5) bar)
+      )
+    )
+  )
+
+; this can be tidied up by defining sequences
+
+; run these lines one by one
+(define seqA (gatesw '(3 0 3 0 3 0 9 9 0 0) bar))
+(define seqB (gatesw '(0 0 9 0 9) bar))
+(define seqC (gatesw '(9 9 0 9 0 9 0) bar))
+
+; now start a sequence on d1 - how can you swap it for seqA?
+(d1 seqC)
+
+
+; We can use this in our if statements
+
+(d3
+ (if (= (swt) 0)
+   seqA
+   (if (= (swt) 1)
+     seqB
+     seqC
+     )
+   )
+  )
+
+
+; this creates a list of the 3 sequences
+(define beats [seqA seqB seqC])
+
+; we can use the 'index' statement to read from the list (index listName entryNumber)
+; so (index beats 2) will activate seqC
+; WHAAAT?  !! Remember the entryNumber starts counting at 0! LOL programmers eh
+
+; so this line along with the (define beats [....]) one above will toggle between the 3 sequences 
+
+(d2 (index beats (swt)))
+
+
+; Super clever useful extension
+; =============================
+
+; create 2 new sequences then redefine the beat slis so you can change the toggle options throughout your performance...
+; make some fun envelopes for a1 then make a list of these to toggle through
+
+
+

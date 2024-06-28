@@ -11,11 +11,20 @@ toc_sticky: true
 
 Hook up a computer to the module, and load this webpage in Chrome browser (or any other browser that has the WebSerial extension).   You can run code from the embedded editor below.
 
+
 ## Connect to uSEQ
 
 In the editor window, click the   ```connect``` button. You will see a list of possible connections. uSEQ is likely to be the one at the top of the list.
 
+uSEQ uses serial-over-USB. If you're connecting to a serial USB device for the first ever time on a Linux or Apple system, you may need to set up some permissions.  The editor will suggest a link with some information if there's an issue.  If you're stuck, please ask on the Discord channel.
+
 {% include useqperform.html params="nosave" %}
+
+
+
+## Firmware update check
+
+It's good to make sure you have the latest firmware.  When you connect to the module, it will tell you if there's an update available.  If so, follow the instructions in the links.
 
 
 ## Generate a signal
@@ -30,22 +39,22 @@ This will generate a square wave on output  ```d1```, that cycles once per bar; 
 
 ## Example: generating a rhythm
 
-uSeq's ```euclid``` function is a quick way of creating some complex rhythms.  For this example, you'll need an oscillator, running through a VCA which is controlled by an envelope generator.
+uSeq's ```gatesw``` function is a quick way of creating some rhythms.  For this example, you'll need an oscillator, running through a VCA which is controlled by an envelope generator.
 
 First, generate a rhythm on output ```d3``` to trigger the envelope generator
 
 ```
-(d3 (euclid bar 9 4))
+(d3 (gatesw '(3 0 5 9 0 8 2 1) bar))
 ```
 
 Paste the code in the editor, and as before, hit ```ctrl-enter``` to run it.
 
-This pattern will repeat every bar, creating a pattern by fitting 4 beats as evenly as possible across 9 equal divisions of the bar. You can play with the numbers to change the rhythm.
+This pattern will repeat every bar, creating a pattern by creating a series of pulses. The numbers determine the pulse width; 9 is the widest, and 0 is a rest. You can play with the numbers to change the rhythm.
 
 To change the speed of the rhythm, you can speed up the bar phasor like this
 
 ```
-(d3 (euclid (fast 2 bar) 9 4))
+(d3 (gatesw '(3 0 5 9 0 8 2 1) (fast 2 bar)))
 ```
 
 replacing ```2``` with any number more than or equal to 1 to vary the speed.

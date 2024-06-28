@@ -14,4 +14,4 @@ uSEQ brings together code and cables, opening up modular synthesis to the vast p
 
 The module has pulse and CV inputs and outputs, pots and switches, all accessible via a small computer onboard. Connect to the module over USB using the in-browser editor, and send code that tells the module how to function.
 
-uSEQ is released on 27th June 2024. It's available as a kit from [Thonk](https://www.thonk.co.uk/) and as a built module from Signal Sounds.
+uSEQ is released on 27th June 2024. It's available as a kit from [Thonk](https://www.thonk.co.uk/) and as a built module from [Signal Sounds](https://www.signalsounds.com/).

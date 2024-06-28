@@ -19,12 +19,16 @@ useq:
       url: /useqinfo/useq-specification/
     - title: "Community"
       url: /useq-community/
-    - title: "Where to buy"
+    - title: "Where to Buy"
       url: /useq-buy/
     - title: "uSEQ Editor"
       url: /useqinfo/useq-editor/
     - title: "Updating Firmware"
       url: /useqinfo/useq-update/
+    - title: "Talking to uSEQ"
+      url: /useqinfo/useq-comms/
+    - title: "Open Source Approach"
+      url: /useqinfo/useq-opensource/
   - title: "Getting Started"
     url: /useq-start/
   - title: "Build Guide"
@@ -49,6 +53,8 @@ useq:
     children:
     - title: "Manipulating Signals"
       url: /tutorials/signalbasics/
+    - title: "Interactive Sequencing"
+      url: /tutorials/seqswitch/
     - title: "Phase Piece"
       url: /tutorials/phasepiece/
     - title: "Gated Envelope Sequences"

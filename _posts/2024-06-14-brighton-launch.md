@@ -24,5 +24,6 @@ Here are tickets for the main evening event, at 6:30-9pm: [https://www.eventbrit
 
 We'll be introducing the module in the evening, and running live coding workshops in the afternoon.  All welcome, whatever your background or interest in modular synthesis and livecoding. We hope to see you there!
 
-*We just added an extra ticket allocation for the evening, so if you couldn't sign up before, you should be able to now*
+** Update ** We just added an extra ticket allocation for the evening, so if you couldn't sign up before, you should be able to now
+{: .notice--warning}
 
