@@ -42,13 +42,13 @@ Variable duty triangle wave
 This waveform is really useful for creating envelopes
 
 e.g. an envelope with fast attack, long decay, with the peak near the beginning
-```
+```clojure
 (a1 (tri 0.1 (fast 4 bar)))
 ```
 
 or transform the straight triangle edges into curves with ```pow```
 
-```
+```clojure
 (a1 (pow (tri 0.2 (fast 4 bar)) 0.6))
 ```
 
@@ -68,10 +68,8 @@ Items in the list are evaluated before being returned, so you can use functions,
 | position | A normalised index | 0-1 |
 
 
-```
-(from-list [1 2 3 4] 0.6) ; => 3
 ```clojure
-(from-list [1 2 3 4] 0.6)) ; => 3
+(from-list [1 2 3 4] 0.6) ; => 3
 ```
 
 ```clojure
@@ -92,7 +90,7 @@ Items in the list are evaluated before being returned, so you can use functions,
 
 ```
 
-### `flat <list>`
+### `flatten <list>`
 
 Take a list that might contain other lists or functions, evaluate them all in turn and collect them in a one dimensional list.
 
@@ -103,41 +101,41 @@ Take a list that might contain other lists or functions, evaluate them all in tu
 Examples:
 
 ```clojure
-(flat [1 [2 3] bar])
+(flatten [1 [2 3] bar])
 ```
 
 
 ```clojure
 (define part1 [1 2 3])
 (define part2 [4 5])
-(flat [part1 part2 part1])
+(flatten [part1 part2 part1])
 ```
 
-### `from-flat-list <list> <position/phasor>` (alias: `flat-seq`)
+### `from-flattened-list <list> <position/phasor>` (alias: `flatseq`)
 
-Read an item from a list, using a normalised index, but flatten then list first (using `flat`).
+Read an item from a list, using a normalised index, but flatten then list first (using `flattened`).
 
-| Parameter | Description | Range |
-| --- | --- | --- |
-| list | A list of values | any |
-| position | A normalised index | 0-1 |
+| Parameter | Description        | Range |
+|-----------|--------------------|-------|
+| list      | A list of values   | any   |
+| position  | A normalised index | 0-1   |
 
 This is a shortcut, equivelant to;
 
 ```clojure
-(from-flat-list (flat <list>) position)
+(from-flattened-list [0 1 2 [3 4 5]] 0.75)
 ```
 
 ### `gates <list> (<pulse width> = 0.5) <phasor>`
 
 Output a sequence of gates, with variable pulse width.
 
-| Parameter | Description | Range |
-| --- | --- | --- |
-| list | A list of gate values | 0 or 1 |
-| phasor | The sequence is output once per cycle of the phasor | 0-1 |
-| speed | Modify the speed of the phasor | >= 1 |
-| pulse width | Optional, default: 0.5. The pulse width of the gates | 0-1 |
+| Parameter   | Description                                          | Range  |
+|-------------|------------------------------------------------------|--------|
+| list        | A list of gate values                                | 0 or 1 |
+| phasor      | The sequence is output once per cycle of the phasor  | 0-1    |
+| speed       | Modify the speed of the phasor                       | >= 1   |
+| pulse width | Optional, default: 0.5. The pulse width of the gates | 0-1    |
 
 ```clojure
 (d2 (gates [0 1 1 0  1 1 1 0  1 1 0 1  1 0 0 1] (+ (swm 1) 0.3) bar))
@@ -155,7 +153,6 @@ Output a sequence of gates, with pulse width controlled from values in the list
 |-----------|---------------------------------------------------------------------------------------------------------------------|-------|
 | list      | A list of gate/pulse width values, varying from 0 (0% pulse width) to 9 (100% pulse width / tie into the next note) | 0 - 9 |
 | phasor    | The sequence is output once per cycle of the phasor                                                                 | 0-1   |
-| speed     | Optional, default: 1. Modify the speed of the phasor                                                                | >= 1  |
 
 ```clojure
 (d2 (gatesw [9 9 5 9 3 0 3 8] (fast 2 bar)))
@@ -169,11 +166,12 @@ Output a sequence of gates, each of which can have a different amplitude, determ
 |------------|-------------------------------------------------------------------------------|-------|
 | list       | A list of trigger values, varying from 0 (0% amplitude) to 9 (100% amplitude) | 0 - 9 |
 | phasor     | The sequence is output once per cycle of the phasor                           | 0-1   |
-| speed      | Optional, default: 1. Modify the speed of the phasor                          | >= 1  |
 | pulseWidth | Optional, default: 0.1. Modify the pulse width of the trigger                 | 0 - 1 |
 
 ```clojure
 (s3 (trigs [0 1 9 0 1] (fast 2 bar)))
+;; With a higher pulse width:
+(s4 (trigs [0 1 9 0 1] 0.7 (fast 2 bar)))
 ```
 
 ### `interp <list> <phasor>`
@@ -229,7 +227,7 @@ Demaine, E.D., Gomez-Martin, F., Meijer, H., Rappaport, D., Taslakian, P., Touss
 |------------|----------------------------------------------------------|-----------|
 | n          | the number of beats to fit into the period of the phasor | >0        |
 | k          | the number of beats to fit, equally spaced, into n beats | >0        |
-| pulseWidth | Optional. Width of the gates                             | >0 and <1 |
+| pulseWidth | (optional) Width of the gates                            | >0 and <1 |
 | phasor     | A phasor                                                 | 0 - 1     |
 
 ```clojure

@@ -12,10 +12,10 @@ toc_sticky: true
 While a lot can be achieved by simply writing and using expressions directly in the code, sooner or later the ability to assign names to values and signals becomes an indispensable ally, helping us structure and organise our thoughts and code.
 
 
-Naming things allows us to easily reference them in many different parts of the code, so that any changes made to them get automatically propagated to every other part of the code that uses them, while it also encourages us to come up with useful and informative names that make it easier to remember, understand, and reason about our thought process and the resulting code.
+Naming things allows us to easily reference them in many different parts of the code, so that any changes made to them get automatically propagated to every other part of the code that uses them. It also encourages us to come up with useful and informative names that make it easier to remember, understand, and reason about our thought process and the resulting code.
 
 
-In ModuLisp, there are four main ways of naming things: `define`/`def`, `defun`/`defn`, `set`, and `let`. They all behave slightly differently, so understanding these differences is important in deciding which one is more appropriate to be used in any given situation.
+In ModuLisp, there are four main ways of defining and naming things: `define`/`def`, `defun`/`defn`, `set`, and `let`. They all behave slightly differently, so understanding these differences is important in deciding which one is more appropriate to be used in any given situation.
 
 ### `define <name> <expression>` (alias: `def`, variation: `defs`)
 
@@ -554,6 +554,7 @@ Checks if the first value is greater than or equal to the second value.
 | value2 | The second value to compare | any |
 
 Checks if the first value is less than or equal to the second value.
+
 ### `usin <phasor>`
 
 | Parameter | Description             | Range |
