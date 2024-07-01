@@ -39,25 +39,25 @@ This will generate a square wave on output  ```d1```, that cycles once per bar; 
 
 ## Example: generating a rhythm
 
-uSeq's ```gatesw``` function is a quick way of creating some rhythms.  For this example, you'll need an oscillator, running through a VCA which is controlled by an envelope generator.
+uSeq's ```seq``` function is a quick way of creating some rhythms.  For this example, you'll need an oscillator, running through a VCA which is controlled by an envelope generator.
 
 First, generate a rhythm on output ```d3``` to trigger the envelope generator
 
 ```
-(d3 (gatesw '(3 0 5 9 0 8 2 1) bar))
+(d3 (seq [1 0 0 1 1 0 1 0] bar))
 ```
 
-Paste the code in the editor, and as before, hit ```ctrl-enter``` to run it.
+Paste the code in the editor, and as before, place the cursor within the line of code, and hit ```ctrl-enter``` to run it.
 
-This pattern will repeat every bar, creating a pattern by creating a series of pulses. The numbers determine the pulse width; 9 is the widest, and 0 is a rest. You can play with the numbers to change the rhythm.
+This pattern will repeat every bar, creating a pattern by creating a series of pulses. You can play with the numbers to change the rhythm.
 
 To change the speed of the rhythm, you can speed up the bar phasor like this
 
 ```
-(d3 (gatesw '(3 0 5 9 0 8 2 1) (fast 2 bar)))
+(d3 (seq [1 0 0 1 1 0 1 0] (fast 2 bar)))
 ```
 
-replacing ```2``` with any number more than or equal to 1 to vary the speed.
+replacing ```2```  in ```(fast 2 bar)```with any number more than or equal to 1 to vary the speed.
 
 Now let's add some CV modulation. Plug ```a1``` into something interesting in your signal chain e.g. oscillator pitch, and run this code
 
@@ -71,7 +71,7 @@ Now you have two lines of code, one generating a rhythm, and one modulating your
 
 ## What next?
 
-A good way to learn livecoding is from examples: take a look at the tutorials and quick modes, try varying and customising the code to get a feel for how it works. Take a look at the API reference to see what uSEQ can do
+A good way to learn livecoding is from examples: take a look at the tutorials and quick modes, try varying and customising the code to get a feel for how it works. Take a look at the API reference to see what uSEQ can do.
 
 ## Getting Help
 

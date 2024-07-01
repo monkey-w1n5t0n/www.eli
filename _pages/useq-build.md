@@ -73,15 +73,16 @@ Push the two pots into the board
 
 ### Step 4: Place (but don't solder) the momentary button
 
-*Important: this is a polarised component*{:style="background-color:lightgreen"}.  You can see a small letter on one side of the top of the button (the letters themselves vary), this needs to go to the left.  
+*Important: this is a polarised component*{:style="background-color:lightgreen"}.  You can see notch on one side, this needs to go to the left of the PCB.  
 
-![build step 4](/assets/images/useq/buildMomentaryClose.jpg){:class="img-responsive"}
-![build step 4](/assets/images/useq/buildMomentary.jpg){:class="img-responsive"}
+![build step 4](/assets/images/useq/button%20notch.jpg){:class="img-responsive"}
+![build step 4](/assets/images/useq/notchside.jpg){:class="img-responsive"}
 
 ### Step 5: Mount LEDs (don't solder yet)
 
-Five pink LEDs go on the left hand side in D7-11. Five blue LEDs go on the right hand side in D5,6,12,13,14. The holes with square pads are ground (short leg). If you get LEDs mixed up, it's possible to tell the colours apart if you look closely in the light.
+Five pink LEDs go on the left hand side in D7-11. Five blue LEDs go on the right hand side in D5,6,12,13,14. The holes with square pads are ground (short leg). To tell the pink and blue LEDS apart, look down on them from the top, in clear light.
 
+![build step 5](/assets/images/useq/LEDpinkblue.jpg){:class="img-responsive"}
 ![build step 5](/assets/images/useq/ledsockets.jpg){:class="img-responsive"}
 ![build step 5](/assets/images/useq/buildledholes.png){:class="img-responsive"}
 ![build step 5](/assets/images/useq/build5leds.jpg){:class="img-responsive"}
@@ -109,7 +110,7 @@ Shake it around a bit until things fall into place
 
 This is a good time to double check that everything is in place properly before you solder.
 
-First solder the momentary button.  *Important: make sure that it's pressed fully flat against the panel when you solder*{:style="background-color:lightgreen"}, otherwise it might sit at an angle and rub against the faceplate.
+First solder the momentary button.  *Important: make sure that it's pressed fully flat against the PCB when you solder*{:style="background-color:lightgreen"}, otherwise it might sit at an angle and rub against the faceplate.
 
 ### Step 10: Solder sockets, pots and switches (but wait on the LEDs)
 
