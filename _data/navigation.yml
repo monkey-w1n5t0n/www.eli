@@ -45,6 +45,8 @@ useq:
       url: /quickmodes/wavefolder/
     - title: "Noise Source"
       url: /quickmodes/noisegen/
+    - title: "CV Processor + Pattern Generator"
+      url: /quickmodes/cvprocessor/
   - title: "ModuLisp"
     children:
     - title: "About"
@@ -59,6 +61,8 @@ useq:
       url: /tutorials/phasepiece/
     - title: "Gated Envelope Sequences"
       url: /tutorials/envgate/
+    - title: "Chaotic Patterns"
+      url: /tutorials/chaotic/
   - title: "uSEQ API Reference"
     children:
     - title: "Timing"

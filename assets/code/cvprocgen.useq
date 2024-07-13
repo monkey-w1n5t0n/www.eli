@@ -1,0 +1,36 @@
+;mix of cvs
+(define cvs-mixed
+  (* 0.5
+      (+
+        (ain1)
+        (ain2))))
+
+;output mix on a1
+(a1 cvs-mixed)
+
+;inverted mix on a2
+(a2 (- 1 cvs-mixed))
+
+;ring modulated (multiplied) on a3
+(a3 (*
+      (ain1)
+      (ain2)))
+
+;d1 is on when cv 1 > cv 2
+(d1 (>
+      (ain1)
+      (ain2)))
+
+;d2 is on when cv 1 < cv 2
+(d2 (<
+      (ain1)
+      (ain2)))
+
+;d3 is on when cv 1 is nearly the same cv 2 with a tolerance of 5%
+;change the 0.05 below to adjust the tolerance
+(d3 (<
+      (abs
+        (-
+          (ain1)
+          (ain2)))
+      0.05))

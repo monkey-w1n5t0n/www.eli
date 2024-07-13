@@ -17,12 +17,12 @@ Run the code in `statement` periodically, at the frequency of `period` times per
 | Parameter | Description | Range |
 | --- | --- | --- |
 | name | An identifier | Any string |
-| statement | A function | Any function |
 | period | the number of times per bar to run the code | >0 |
+| statement | A function | Any function |
 
 To print "hi" 3 times per bar:
 ```
-(schedule "test" (print "hi") 3)
+(schedule "test" 3 (println "hi"))
 ```
 
 ## `unschedule <name>`

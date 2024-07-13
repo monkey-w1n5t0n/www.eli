@@ -1,0 +1,31 @@
+
+;output the logistic map to a1 and s1 / generate a pattern on d1
+;switch on the serial stream viewer in the editor to view the waveform
+;info: https://en.wikipedia.org/wiki/Logistic_map
+
+;set up data
+(set x 0.1)
+(set r 3.99)
+
+;update equation: x = rx[1-x]
+(defun update (v r)
+  (* r
+        (* v
+          (- 1 v)
+          )
+        )
+  )
+
+;run from the scheduler
+(schedule "logisticmap" 16 (set x
+                             (if (swm) 0.1
+                               (update x (+ 1 (* 2.999 (ain1)))))))
+
+;send the results to some outputs
+(a1 x)
+(s1 x)
+;threshold the logistic map with cv 2 to create trigger patterns
+(d1 (> x (ain2)))
+
+;unschedule the system
+(unschedule "logisticmap")
