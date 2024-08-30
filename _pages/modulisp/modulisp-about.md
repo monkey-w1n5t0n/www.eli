@@ -602,21 +602,35 @@ Rounds a number up to the nearest integer.
 (ceil -1.2) ; => -1
 ```
 
-### `scale <val> <in min> <in max> <out min> <out max>`
+### `scale <in min> <in max> <out min> <out max> <val>`
 
 | Parameter | Description              | Type   |
 |-----------|--------------------------|--------|
-| val       | The value to scale       | Number |
 | in-min    | The minimum input range  | Number |
 | in-max    | The maximum input range  | Number |
 | out-min   | The minimum output range | Number |
 | out-max   | The maximum output range | Number |
+| val       | The value to scale       | Number |
 
 Scales a value from one range to another.
 
 ```clojure
-(scale 0.5 0 1 0 100) ;; => 50.0
-(scale 25 0 100 0 1) ;; => 0.25
+(scale 0 1 0 100 0.5) ;; => 50.0
+(scale 0 100 0 1 25) ;; => 0.25
+```
+
+### `scale <out min> <out max> <val>`
+
+| Parameter | Description              | Type   |
+|-----------|--------------------------|--------|
+| out-min   | The minimum output range | Number |
+| out-max   | The maximum output range | Number |
+| val       | The value to scale       | Number |
+
+Scales a value from one range to another, assuming ```val``` is in the range 0 to 1
+
+```clojure
+(scale 0 100 0.5) ;; => 50.0
 ```
 
 ### `bi->uni <value>` (alias: `b->u`)

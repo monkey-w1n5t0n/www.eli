@@ -10,7 +10,7 @@ toc_sticky: true
 
 The scheduler runs a statement periodically.  This might be needed for stateful functions that require regular periodic updates
 
-## `schedule <name> <statement> <period>`
+## `schedule <name> <period> <statement> `
 
 Run the code in `statement` periodically, at the frequency of `period` times per bar
 

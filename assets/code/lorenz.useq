@@ -1,0 +1,70 @@
+
+;rendering strange attractors
+;switch on the serial stream viewer in the editor to view the waveform
+
+;set up data
+
+(set a 20)
+(set r 28)
+(set g 3)
+
+;coordinates of the attractor
+(set x (random 0 3))
+(set y (random 1 4))
+(set z (random 2 5))
+;timestep
+(set ts 0.01)
+
+;rules for updating
+(defun updatex (a x y) (* a (+ y (* -1 x))))
+(defun updatey (r x y z) (- (+ (* z (* -1 x)) (* r x)) y))
+(defun updatez (g x y z) (- (* x y) (* g z)))
+
+;run the attractor periodically
+;use cv in 1 and 2 to control cooefficients
+;if the system saturates, hit the momentary button to reset
+
+(schedule "attractor" 128
+  (do
+    (set g (* (ain2) 20))
+    (set a (* (ain1) 40))
+    (set dx (* ts (updatex a x y)))
+    (set dy (* ts (updatey r x y z)))
+    (set dz (* ts (updatez g x y z)))
+
+    (set x (if (swm) 1 (+ x dx)))
+    (set y (if (swm) 0.5 (+ y dy)))
+    (set z (if (swm) 0.25 (+ z dz)))
+    (set xout (* 0.025 (+ x 20)))
+    (set yout (* 0.025 (+ y 20)))
+    (set zout (* z 0.025))   
+    ))
+
+;run when finished
+(unschedule "attractor")
+
+;this is about the fastest it will integrate without error
+(set ts 0.025)
+;check the raw values of the system
+[x y z]
+;check the normalised outputs
+[xout yout zout]
+
+;send the outputs to a1-a3
+(a1 xout)
+(a2 yout)
+(a3 zout)
+
+
+
+;send the results to the editor for visualisation
+(s1 xout)
+(s2 yout)
+(s3 zout)
+
+
+;threshold the attractor to create trigger patterns
+(d1 (> xout 0.5))
+(d2 (> yout 0.5))
+(d3 (> zout 0.5))
+

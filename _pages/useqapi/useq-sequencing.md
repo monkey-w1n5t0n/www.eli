@@ -213,7 +213,7 @@ Turn a phasor into an integer counter.
 | offset | Optional. the point to start the counter from | any |
 | phasor | A phasor | 0 - 1 |
 
-## Pattern Generation
+## Euclidean Sequencing
 
 ### `euclid <n> <k> (<pulseWidth> = 0.5) <phasor>`
 
@@ -235,3 +235,155 @@ Demaine, E.D., Gomez-Martin, F., Meijer, H., Rappaport, D., Taslakian, P., Touss
 (d2 (euclid 32 8 0.1 bar))
 (d3 (euclid 16 6 (step (fast 4 phrase) bar)))
 ```
+
+## Sequencing with Ratios
+
+### `rpulse <ratios> <pulsewidth> <phasor>`
+
+Generate pulses by dividing a phasor into sections according to a list of timing ratios, and emiting a pulse at the start of each section.
+
+
+| Parameter  | Description                                              | Range     |
+|------------|----------------------------------------------------------|-----------|
+| ratios     | a list of ratios of time periods that the phasor will be divided into | any        |
+| pulseWidth | width of the pulses                                      | >0 and <1 |
+| phasor     | A phasor                                                 | 0 - 1     |
+
+
+The relative size of the numbers in the ratios list determines how the bar will be divided up.
+
+This is great for triggering drums and envelopes, or gating other signals.
+
+
+Here are some code examples with graphs of the output.
+
+
+```clojure
+(d1 (rpulse [1 1] 0.5 bar))
+```
+
+![ratio sequencing example](/assets/images/useq/api/rpulse_1_1.jpg){:class="img-responsive"}
+
+(also) generate 2 equal size beats per bar
+
+```clojure
+(d1 (rpulse [15 15] 0.5 bar))
+```
+![ratio sequencing example](/assets/images/useq/api/rpulse_1_1.jpg){:class="img-responsive"}
+
+
+
+```clojure
+(d1 (rpulse [3 3 3] 0.2 bar))
+```
+![ratio sequencing example](/assets/images/useq/api/rpulse_3_3_3.jpg){:class="img-responsive"}
+
+
+```clojure
+(d1 (rpulse [1 1 2 3 1] 0.1 bar))
+```
+![ratio sequencing example](/assets/images/useq/api/rpulse_11231.jpg){:class="img-responsive"}
+
+
+```clojure
+(d1 (rpulse [3 1 1 1 3 2 1] 0.9 bar))
+```
+![ratio sequencing example](/assets/images/useq/api/rpulse-09.jpg){:class="img-responsive"}
+
+
+### `rstep <ratios> <phasor>`
+
+Transform a phasor (or other signal) into a series of steps.  The list of ratios (as with ```rpulse``` above) determines the timing and length of the steps.  The amplitude of the step is determined by the phasor's value at the beginning of the step. 
+
+It's the equivelant of triggering a sample and hold on the phasor, according to the timing of the ratios.
+
+
+| Parameter  | Description                                              | Range     |
+|------------|----------------------------------------------------------|-----------|
+| ratios     | a list of ratios of time periods that the phasor will be divided into | any        |
+| phasor     | A phasor                                                 | 0 - 1     |
+
+
+You could use this as a signal on its own, or use it as a phasor to index into other sequencing functions (e.g. ```interp```)
+
+```clojure
+(d1 (rstep [1 1 2] bar))
+```
+
+![ratio sequencing example](/assets/images/useq/api/rstep1.jpg){:class="img-responsive"}
+
+```clojure
+(d1 (rstep [6 6 6 2 2 2] bar))
+```
+
+![ratio sequencing example](/assets/images/useq/api/rstep2.jpg){:class="img-responsive"}
+
+
+```rstep``` can be used as a phasor for other functions. This code below is a bit like using a sample-and-hold on an envelope, timings determined by the ratios.
+
+```clojure
+(a2 (interp [0 0.2 1 0] (rstep [3 1 1 1] (slow 4 bar))))
+```
+
+
+
+### `ridx <ratios> <phasor>`
+
+Transform a phasor (or other signal) into a series of steps.  The list of ratios (as with ```rpulse``` above) determines the timing and length of the steps.  The amplitude of the step is determined by the index of the time ratio in the list of ratios.  It's a bit like ```rstep``` above, but the steps occur at even divisions of the range 0-1, depending on the number of time ratios specificied. This means ```ridx``` is useful as a phasor for indexing other lists (e.g. using ```seq```); you can control the timing of when you move through items in another list.
+
+
+
+| Parameter  | Description                                              | Range     |
+|------------|----------------------------------------------------------|-----------|
+| ratios     | a list of ratios of time periods that the phasor will be divided into | any        |
+| phasor     | A phasor                                                 | 0 - 1     |
+
+
+
+```clojure
+(d1 (ridx [1 1 1 3] bar))
+```
+
+![ratio sequencing example](/assets/images/useq/api/ridx1.jpg){:class="img-responsive"}
+
+
+```clojure
+(d1 (ridx [1 1 15 3 3] bar))
+```
+
+![ratio sequencing example](/assets/images/useq/api/ridx2.jpg){:class="img-responsive"}
+
+
+### `rwarp <ratios> <phasor>`
+
+This works similarly to ```ridx``` above, except that the function produces a ramp between points at the start of each time period.  This could be useful with functions like ```gatesw```, which take a ramp as input and use this to control pulse width. In this case, you could control the timing of when you move though each gate.
+
+
+| Parameter  | Description                                              | Range     |
+|------------|----------------------------------------------------------|-----------|
+| ratios     | a list of ratios of time periods that the phasor will be divided into | any        |
+| phasor     | A phasor                                                 | 0 - 1     |
+
+
+
+```clojure
+(d1 (rwarp [1 5 12] bar))
+```
+
+![ratio sequencing example](/assets/images/useq/api/rwarp1.jpg){:class="img-responsive"}
+
+
+```clojure
+(d1 (rwarp [200 40 10] bar))
+```
+
+![ratio sequencing example](/assets/images/useq/api/rwarp2.jpg){:class="img-responsive"}
+
+
+```clojure
+;fibonacci ratios
+(d1 (rwarp [1 2 3 5 8 13 21 34 55] bar))
+```
+
+![ratio sequencing example](/assets/images/useq/api/rwarp3.jpg){:class="img-responsive"}
+
