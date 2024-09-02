@@ -236,7 +236,10 @@ Demaine, E.D., Gomez-Martin, F., Meijer, H., Rappaport, D., Taslakian, P., Touss
 (d3 (euclid 16 6 (step (fast 4 phrase) bar)))
 ```
 
-## Sequencing with Ratios
+## Sequencing with Ratios 
+
+(firmware 1.1.0 onwards)
+
 
 ### `rpulse <ratios> <pulsewidth> <phasor>`
 
