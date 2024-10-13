@@ -203,6 +203,29 @@ creates a slowly changing envelope that loops every section, sent to PWM output 
 
 ## Phasor Processing
 
+### `shift <offset> <phasor>`
+
+Start a phasor from a specified point.
+
+| Parameter | Description | Range |
+| --- | --- | --- |
+| offset | The offset to start the phasor from | 0-1 |
+| phasor | A phasor | 0 - 1 |
+
+In the example below, ```a2``` will begin at a quarter of a bar offset to ```a1```.
+
+```
+(a1 (shift 0 bar))
+(a2 (shift 0.25 bar))
+```
+
+Alternating pulses between ```d1``` and ```d2```.
+
+```
+(d1 (sqr (fast 2 bar)))
+(d2 (sqr (fast 2 (shift 0.5 bar))))
+```
+
 ### `step <count> (<offset> = 0) <phasor>`
 
 Turn a phasor into an integer counter.
@@ -310,13 +333,13 @@ It's the equivelant of triggering a sample and hold on the phasor, according to 
 You could use this as a signal on its own, or use it as a phasor to index into other sequencing functions (e.g. ```interp```)
 
 ```clojure
-(d1 (rstep [1 1 2] bar))
+(a1 (rstep [1 1 2] bar))
 ```
 
 ![ratio sequencing example](/assets/images/useq/api/rstep1.jpg){:class="img-responsive"}
 
 ```clojure
-(d1 (rstep [6 6 6 2 2 2] bar))
+(a1 (rstep [6 6 6 2 2 2] bar))
 ```
 
 ![ratio sequencing example](/assets/images/useq/api/rstep2.jpg){:class="img-responsive"}
@@ -344,14 +367,14 @@ Transform a phasor (or other signal) into a series of steps.  The list of ratios
 
 
 ```clojure
-(d1 (ridx [1 1 1 3] bar))
+(a1 (ridx [1 1 1 3] bar))
 ```
 
 ![ratio sequencing example](/assets/images/useq/api/ridx1.jpg){:class="img-responsive"}
 
 
 ```clojure
-(d1 (ridx [1 1 15 3 3] bar))
+(a1 (ridx [1 1 15 3 3] bar))
 ```
 
 ![ratio sequencing example](/assets/images/useq/api/ridx2.jpg){:class="img-responsive"}
@@ -370,14 +393,14 @@ This works similarly to ```ridx``` above, except that the function produces a ra
 
 
 ```clojure
-(d1 (rwarp [1 5 12] bar))
+(a1 (rwarp [1 5 12] bar))
 ```
 
 ![ratio sequencing example](/assets/images/useq/api/rwarp1.jpg){:class="img-responsive"}
 
 
 ```clojure
-(d1 (rwarp [200 40 10] bar))
+(a1 (rwarp [200 40 10] bar))
 ```
 
 ![ratio sequencing example](/assets/images/useq/api/rwarp2.jpg){:class="img-responsive"}
@@ -385,8 +408,14 @@ This works similarly to ```ridx``` above, except that the function produces a ra
 
 ```clojure
 ;fibonacci ratios
-(d1 (rwarp [1 2 3 5 8 13 21 34 55] bar))
+(a1 (rwarp [1 2 3 5 8 13 21 34 55] bar))
 ```
 
 ![ratio sequencing example](/assets/images/useq/api/rwarp3.jpg){:class="img-responsive"}
 
+
+Use to time elements of ```gatesw```:
+
+```clojure
+(a1 (gatesw [4 8 1 8] (rwarp [3 5 2 6] bar)))
+```
