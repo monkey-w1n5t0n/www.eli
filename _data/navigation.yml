@@ -29,6 +29,8 @@ useq:
       url: /useqinfo/useq-comms/
     - title: "Open Source Approach"
       url: /useqinfo/useq-opensource/
+    - title: "Development Roadmap"
+      url: /useqinfo/useq-roadmap/
   - title: "Getting Started"
     url: /useq-start/
   - title: "Build Guide"
@@ -49,7 +51,7 @@ useq:
       url: /quickmodes/cvprocessor/
   - title: "ModuLisp"
     children:
-    - title: "About"
+    - title: "Reference"
       url: /modulisp-about/
   - title: "uSEQ Tutorials"
     children:

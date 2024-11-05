@@ -262,6 +262,20 @@ Creates a list of zeros of the specified length.
 (zeros 0) ; => []
 ```
 
+### `range <low> <high>`
+
+| Parameter | Description                     | Range            |
+|-----------|---------------------------------|------------------|
+| low    | The lowest number in the series | any integer |
+| high    | The highest number in the series | any integer |
+
+Create a vector of numbers from low to high.
+
+``` clojure
+(range 1 3) ; => [1 2 3]
+(range -10 0) ; => [-10 -9 -8 -7 -6 -5 -4 -3 -2 -1 0]
+```
+
 ### `insert <list> <position> <value>`
 
 | Parameter | Description                        | Type             |
@@ -294,6 +308,10 @@ Removes from the list the value at the specified index (if it exists).
 ### `len <list> `
 Returns the length of a list or vector.
 
+```clojure
+(len [1 2 3 4 5]) ;; => 5
+```
+
 ### `push <list> <value>`
 
 | Parameter | Description         | Type        |
@@ -308,8 +326,55 @@ Pushes a value to the top of a list.
 (push [1 2 3] 5) ;; => [5 1 2 3]
 ```
 
-### `pop <list> `
-Removes the first/top element of the list.
+### `pop <list>`
+Removes the last/top element of the list (non-destructive)
+
+| Parameter | Description         | Type        |
+|-----------|---------------------|-------------|
+| list      | The list to pop a value from | List/Vector |
+
+```clojure
+(pop [812 38 92 99]) ;; => 99
+
+(pop '(X Y Z)) ;; => Z
+
+(define x [1 2 3])
+(pop x) ;; => 3
+(println x) ;; => [1 2 3]
+```
+
+### `slice <list> <from> <to>`
+
+| Parameter | Description         | Type        |
+|-----------|---------------------|-------------|
+| list      | The list to push to | List/Vector |
+| from     | Index of the first value in the slice   | Integer         |
+| to     | Index of the value following the end of the slice   | Integer         |
+
+Extract a subset of a list or vector.
+
+This supports negative indexing, where negative indexes are counted backwards from the end.
+
+```clojure
+(slice [1 2 3 4 5] 0 3) ;; => [1 2 3]
+(slice '(1 2 3 4 5) 0 -1) ;; => (1 2 3 4)
+(slice [1 2 3 4 5] 1 -3) ;; => [2]
+(slice [1 2 3 4 5] -3 -1) ;; => [3 4]
+```
+
+### `flatten <list>`
+
+| Parameter | Description         | Type        |
+|-----------|---------------------|-------------|
+| list      | The list to push to | List/Vector |
+
+Take a list with multiple dimensions and return a single dimensional list of the value, in sequence.
+
+```clojure
+(flatten [[1 2] 2 3 [1 2 3]]) ;; => [1 2 2 3 1 2 3]
+(flatten '(0 1 '(2 3))) ;; => (0 1 2 3)
+(flatten [[0 [1 [3 [4 5]]]]]) ;; => [1 1 3 4 5]
+```
 
 ## Functional Programming
 ### `lambda <params> & <body>` (alias: `fn`)
